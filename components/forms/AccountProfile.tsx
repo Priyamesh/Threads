@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -144,6 +143,7 @@ function AccountProfile({ user, btnTitle }: Props) {
                   onChange={(e) => handleImage(e, field.onChange)}
                 />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -161,6 +161,7 @@ function AccountProfile({ user, btnTitle }: Props) {
                   className="account-form_input no-focus"
                   {...field}
                 />
+                <FormMessage />
               </FormControl>
             </FormItem>
           )}
@@ -179,6 +180,7 @@ function AccountProfile({ user, btnTitle }: Props) {
                   className="account-form_input no-focus"
                   {...field}
                 />
+                <FormMessage />
               </FormControl>
             </FormItem>
           )}
@@ -197,6 +199,7 @@ function AccountProfile({ user, btnTitle }: Props) {
                   className="account-form_input no-focus"
                   {...field}
                 />
+                <FormMessage />
               </FormControl>
             </FormItem>
           )}
