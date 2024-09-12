@@ -1,6 +1,6 @@
 "use client";
 
-import { SignedIn, SignOutButton } from "@clerk/nextjs";
+import { SignedIn, SignOutButton, useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,6 +9,7 @@ import { sidebarLinks } from "@/constants/index";
 
 function LeftSideBar() {
   const pathname = usePathname();
+  const { userId } = useAuth();
 
   return (
     <section className="custom-scrollbar leftsidebar">
@@ -17,6 +18,9 @@ function LeftSideBar() {
           const isActive =
             link.route === pathname ||
             (pathname.includes(link.route) && link.route.length > 1);
+
+          if (link.route === "/profile")
+              link.route = `${link.route}/${userId}`;
 
           return (
             <Link
