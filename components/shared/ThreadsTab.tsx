@@ -1,8 +1,6 @@
 import { redirect } from "next/navigation";
 
-// import { fetchCommunityPosts } from "@/lib/actions/community.actions";
 import { fetchUserPosts } from "@/lib/actions/user.action";
-
 import ThreadCard from "../cards/ThreadCard";
 
 interface Result {
@@ -18,11 +16,7 @@ interface Result {
       image: string;
       id: string;
     };
-    community: {
-      id: string;
-      name: string;
-      image: string;
-    } | null;
+
     createdAt: string;
     children: {
       author: {
@@ -65,7 +59,6 @@ async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
                   id: thread.author.id,
                 }
           }
-          community={thread.community}
           createdAt={thread.createdAt}
           comments={thread.children}
         />
